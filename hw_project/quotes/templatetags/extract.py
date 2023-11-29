@@ -1,5 +1,3 @@
-from bson.objectid import ObjectId
-
 from ..utils import get_mongodb
 from django import template
 
@@ -10,7 +8,7 @@ def get_author(id_):
 
     db = get_mongodb()
 
-    author = db.authors_collection.find_one({'_id': ObjectId(id_)})
+    author = db.authors_collection.find_one({'_id':id_})
 
     return author['fullname']
 
